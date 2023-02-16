@@ -1,0 +1,30 @@
+#include <iostream>
+#include<vector>
+#include<limits.h>
+using namespace std;
+
+int main()
+{
+   vector<int>arr{1,2,3,3,4,5};
+    vector<int> ans;
+   int sum=10;
+   for(int i=0;i<arr.size();i++){
+       int Element1=arr[i];
+       
+       for(int j=i+1;j<arr.size();j++){
+           int Element2=arr[j];
+           
+           for(int k=i+2;k<arr.size();k++){
+              int Element3 =arr[k];
+           
+           if(Element1+Element2+Element3 ==sum){
+               
+              cout<<"pair found: "<<Element1<<","<<Element2<<","<<Element3<<endl;
+           }
+           }
+       }
+       
+   }
+   
+   }
+ 
