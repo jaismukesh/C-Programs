@@ -1,0 +1,28 @@
+#include <iostream>
+
+using namespace std;
+
+ int MissingElement(int arr[],int n){
+   int i=0;
+   while(i<n){
+     if(i+1==arr[i]){
+       i++;
+     }
+     else{
+       return i+1;
+       break;
+     }
+   }
+   }
+
+int main()
+{
+   int arr[8]={1,2,3,4,6,7,8,9};
+   int n=8;
+   
+  int Element=MissingElement(arr,n);
+   
+   cout<<"Missing  Element is:"<<Element<<endl;
+
+    return 0;
+}
