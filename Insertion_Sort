@@ -1,0 +1,36 @@
+#include <iostream>
+#include<vector>
+using namespace std;
+
+int main() {
+  vector<int>arr{10,1,7,6,14,9};
+  int n=arr.size();
+
+  for(int i=1;i<n;i++){
+    
+    //step A: value fetch
+    int val=arr[i];
+    int j;
+    for(j=i-1;j>=0;j--){
+      //step B: comparison
+      if(arr[j]>val){
+    // Step C: shifting
+        arr[j+1]=arr[j];
+      }
+      else{
+        // kuch nhi krna h simple i ko increase krna h.
+        break;
+      }
+    }
+    // step D: copy 
+   arr[j+1]=val;
+    
+  }
+
+  //printing the sorted array
+  for(int i=0;i<n;i++){
+    cout<<arr[i]<<" ";
+  }
+  cout<<endl;
+  
+  }
