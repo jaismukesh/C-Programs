@@ -1,0 +1,28 @@
+#include <iostream>
+#include<vector>
+using namespace std;
+int BinarySearch(vector<int>&arr,int s,int e,int& key){
+  if(s>e){
+    return -1;
+  }
+  int mid=s+(e-s)/2;
+  if(arr[mid]==key){
+    return mid;
+  }
+  if(arr[mid]<key){
+    return BinarySearch(arr,mid+1,e,key);
+  }
+  else{
+    return BinarySearch(arr,s,mid-1,key);
+  }
+}
+int main() {
+  vector<int>arr{10,12,30,45,90};
+  int n=arr.size();
+  int s=0;
+  int e=n-1;
+  int key=45;
+  int index=BinarySearch(arr,s,e,key);
+  cout<<"key found at index"<<index<<endl;
+  return 0;
+}
