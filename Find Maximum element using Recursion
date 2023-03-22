@@ -1,0 +1,21 @@
+#include <iostream>
+#include<limits.h>
+using namespace std;
+//here we use pass by reference bcoz in pass by value function work on copy file when function ends the copy also remove that's why we pass by reference.
+void findMax(int arr[],int n,int i,int &maxi){
+  if(i>=n){
+    return;
+  }
+  if(arr[i]>maxi){
+    maxi=arr[i];
+  }
+  findMax(arr,n,i+1,maxi);
+}
+int main(){
+  int arr[]={10,20,30,2,66};
+  int n=5;
+  int maxi=INT_MIN;
+  int i=0;
+  findMax(arr,n,i,maxi);
+  cout<<"Maximum number is:"<<maxi<<endl;
+}
