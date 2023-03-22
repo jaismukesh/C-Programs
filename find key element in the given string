@@ -1,0 +1,20 @@
+#include <iostream>
+#include<string>
+using namespace std;
+
+int checkkey(string &str,int i,int& n,int key){
+  if(i>=n){
+    return false;
+  }
+  if(str[i]==key){
+    cout<<"founa at index:"<<i<<endl;
+  }
+  return checkkey(str,i+1, n,key); 
+}
+int main(){
+  string str="mukeshjais";
+  char key='h';
+  int n=str.length();
+  int i=0;
+checkkey(str,i,n,key);
+}
