@@ -1,0 +1,86 @@
+#include <iostream>
+using namespace std;
+
+
+void Merge(int arr[],int s,int e){
+  int mid =(s+e)/2;
+  int len1=mid-s+1;
+  int len2=e-mid;
+
+  //creating two new array left and right.
+  int *left=new int[len1];
+  int *right=new int[len2];
+
+  //copy values in the left array
+
+  int k=s;
+  for(int i=0;i<len1;i++){
+    left[i]=arr[k];
+    k++;
+  }
+
+  //copy values in the right array
+
+   k=mid+1;
+  for(int i=0;i<len1;i++){
+    right[i]=arr[k];
+    k++;
+  }
+
+  //merging logic
+
+  int LeftIndex=0;
+  int RightIndex=0;
+  int MainArrayIndex=s;
+  while(LeftIndex<len1 && RightIndex<len2){
+    if(left[LeftIndex]<right[RightIndex]){
+      arr[MainArrayIndex++]=left[LeftIndex++];
+        
+    }
+    else{
+      arr[MainArrayIndex++]=right[RightIndex++];
+    }
+  }
+
+  //copying logic for left remaining element 
+
+  while(LeftIndex<len1){
+    arr[MainArrayIndex++]=left[LeftIndex++];
+  }
+
+  //copying logic for right remaing element 
+  while(RightIndex<len2){
+    arr[MainArrayIndex++]=right[RightIndex++];
+  }
+  
+}
+
+void MergeSort(int arr[],int s ,int e){
+  // base case
+  //s==e-->> return
+  //s>e-->> invalid
+
+  if(s>=e){
+    return;
+  }
+  //left array sort by recursion
+  int mid=(s+e)/2;
+  MergeSort(arr,s,mid);
+
+  //right array sort by recursion
+  MergeSort(arr,mid+1,e);
+
+  //Merging by recursion
+  Merge(arr,s,e);
+}
+int main() {
+  int arr[]={7,3,2,16,24,4,11,9};
+  int n=8;
+  int s=0;
+  int e=n-1;
+  MergeSort(arr,s,e);
+for(int i=0;i<n;i++){
+  cout<<arr[i]<<" ";
+}  
+  cout<<endl;
+}
