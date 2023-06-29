@@ -1,0 +1,46 @@
+#include <iostream>
+#include<queue>
+using namespace std;
+
+//Approach-1: BY using stack
+ // void ReverseQueue(queue<int>&q){
+ //   stack<int>s;
+ //   while(!q.empty()){
+ //     int element=q.front();
+ //     q.pop();
+ //     s.push(element);
+ //   }
+
+ //   while(!s.empty()){
+ //     int element =s.top();
+ //     s.pop();
+ //     q.push(element);
+ //   }
+ // }
+
+
+//Approach-2:BY using Recursion
+void ReverseQueue(queue<int>&q){
+  if(q.empty()){
+    return;
+  }
+  int element=q.front();
+  q.pop();
+  ReverseQueue(q);
+  q.push(element);
+}
+int main() {
+  queue<int>q;
+  q.push(10);
+  q.push(30);
+  q.push(40);
+  q.push(50);
+
+  ReverseQueue(q);
+
+  while(!q.empty()){
+    cout<<q.front()<<" ";
+    q.pop();
+  }
+  cout<<endl;
+}
